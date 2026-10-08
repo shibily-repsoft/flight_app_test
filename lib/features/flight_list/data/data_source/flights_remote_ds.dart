@@ -3,7 +3,5 @@ import 'package:flight_app_test/features/flight_list/data/modals/flight_modal.da
 
 abstract class FlightsRemoteDataSource {
   Future<ApiResultModel<FlightModal?>> getFlightsData();
-
-
 }
 

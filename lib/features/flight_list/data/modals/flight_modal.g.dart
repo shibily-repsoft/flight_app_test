@@ -7,7 +7,7 @@ part of 'flight_modal.dart';
 // **************************************************************************
 
 FlightModal _$FlightModalFromJson(Map<String, dynamic> json) => FlightModal(
-  resultCount: (json['resultCount '] as num?)?.toInt(),
+  resultCount: (json['resultCount'] as num?)?.toInt(),
   currency: json['currency'] as String?,
   flightTrips: (json['flightTrips'] as List<dynamic>?)
       ?.map((e) => FlightTripModal.fromJson(e as Map<String, dynamic>))
@@ -16,7 +16,7 @@ FlightModal _$FlightModalFromJson(Map<String, dynamic> json) => FlightModal(
 
 Map<String, dynamic> _$FlightModalToJson(FlightModal instance) =>
     <String, dynamic>{
-      'resultCount ': instance.resultCount,
+      'resultCount': instance.resultCount,
       'currency': instance.currency,
       'flightTrips': instance.flightTrips,
     };
@@ -65,22 +65,22 @@ Map<String, dynamic> _$TripDurationModalToJson(TripDurationModal instance) =>
 
 FlightJourneyModal _$FlightJourneyModalFromJson(Map<String, dynamic> json) =>
     FlightJourneyModal(
-        journeyIdentifier: $enumDecodeNullable(
-          _$JourneyIdentifierEnumMap,
-          json['journeyIdentifier'],
-        ),
-        travelDirection: (json['travelDirection'] as num?)?.toInt(),
-      )
-      ..tripDuration = json['journeyTime'] == null
+      journeyIdentifier: $enumDecodeNullable(
+        _$JourneyIdentifierEnumMap,
+        json['journeyIdentifier'],
+      ),
+      travelDirection: (json['travelDirection'] as num?)?.toInt(),
+      tripDuration: json['journeyTime'] == null
           ? null
           : TripDurationModal.fromJson(
               json['journeyTime'] as Map<String, dynamic>,
-            )
-      ..totalStops = (json['totalStops'] as num?)?.toInt()
-      ..flightItems = (json['flightItems'] as List<dynamic>?)
+            ),
+      totalStops: (json['totalStops'] as num?)?.toInt(),
+      flightItems: (json['flightItems'] as List<dynamic>?)
           ?.map((e) => FlightItemModal.fromJson(e as Map<String, dynamic>))
-          .toList()
-      ..dayChange = json['dayChange'] as bool?;
+          .toList(),
+      dayChange: json['dayChange'] as bool?,
+    );
 
 Map<String, dynamic> _$FlightJourneyModalToJson(
   FlightJourneyModal instance,

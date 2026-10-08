@@ -17,15 +17,15 @@ class FlightsLoading extends FlightsState {
 }
 
 class FlightsLoaded extends FlightsState {
-  final ApiResultModel<FlightEntity> flights;
+  final ApiResultModel<FlightModal> flights;
 
   const FlightsLoaded(this.flights);
 
   @override
-  bool operator ==(Object o) {
-    if (identical(this, o)) return true;
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
 
-    return o is FlightsLoaded && o.flights == flights;
+    return other is FlightsLoaded && other.flights == flights;
   }
 
   @override
@@ -37,10 +37,10 @@ class FlightsError extends FlightsState {
   const FlightsError(this.message);
 
   @override
-  bool operator ==(Object o) {
-    if (identical(this, o)) return true;
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
 
-    return o is FlightsError && o.message == message;
+    return other is FlightsError && other.message == message;
   }
 
   @override
